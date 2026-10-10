@@ -1,6 +1,10 @@
-# FastAPI + server
+
+# CPU-only PyTorch package index
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+# FastAPI server
 fastapi>=0.115,<0.116
-uvicorn[standard]>=0.32,<0.33
+uvicorn>=0.32,<0.33
 
 # Config / settings
 pydantic>=2.0,<3.0
@@ -10,15 +14,18 @@ python-dotenv>=1.0,<2.0
 # Qdrant
 qdrant-client>=1.11,<2.0
 
-# CLIP retrieval (search_engine.py)
-open-clip-torch>=2.24,<3.0
-torch>=2.2
+# CPU-only PyTorch: avoid CUDA-enabled wheels
+torch==2.5.1+cpu
+torchvision==0.20.1+cpu
 
-# Cross-encoder reranking (search_engine.py)
+# CLIP retrieval
+open-clip-torch>=2.24,<3.0
+
+# Cross-encoder reranking
 sentence-transformers>=3.0,<4.0
 
-# Image handling (query image decoding)
+# Image handling
 Pillow>=10.0,<11.0
 
-# LLM (gemini_service.py)
+# Gemini API
 google-genai>=1.0,<2.0
