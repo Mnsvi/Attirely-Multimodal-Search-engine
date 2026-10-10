@@ -1,0 +1,114 @@
+/* ==========================================================
+   ATTIRELY — Result Header Styles
+   ========================================================== */
+
+.result-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 40px 0 24px;
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--color-border);
+  gap: 24px;
+}
+
+.result-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.result-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.breadcrumb-sep {
+  opacity: 0.5;
+}
+
+.breadcrumb-current {
+  color: var(--color-maroon);
+  font-weight: 600;
+}
+
+.result-main-title {
+  font-family: var(--font-brand);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.query-highlight {
+  color: var(--color-maroon);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.result-count {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.result-header-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.result-top-match-similar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  border: 1px solid var(--color-border-strong);
+  cursor: pointer;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(28, 27, 25, 0.04);
+}
+
+.result-top-match-similar-btn:hover {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 62, 116, 0.2);
+}
+
+.result-top-match-similar-btn .top-match-arrow {
+  font-size: 0.95rem;
+  transition: transform var(--transition-fast);
+}
+
+.result-top-match-similar-btn:hover .top-match-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .result-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 0 16px;
+    gap: 16px;
+  }
+}

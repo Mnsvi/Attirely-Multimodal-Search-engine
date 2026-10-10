@@ -1,0 +1,250 @@
+/* ==========================================================
+   ATTIRELY — Page 2: Horizontal Editorial Gallery
+   Palette:
+   - Burgundy: #970747
+   - Ivory cream: #FEF4E8
+   - Deep blue: #13445A
+   - Muted slate blue: #446878
+   ========================================================== */
+
+.showcase--editorial {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FEF4E8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 70px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-margin-top: 80px;
+}
+
+/* ==========================================================
+   Header Section — strictly requested text lines only
+   ========================================================== */
+
+.showcase__header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 36px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.showcase__title {
+  font-family: var(--font-brand);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  color: #13445A;
+  letter-spacing: 0.1em;
+  line-height: 1.05;
+  font-weight: 500;
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+}
+
+.showcase__subcaption {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  color: #970747;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.showcase__match-headline {
+  font-family: var(--font-brand);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  color: #13445A;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ==========================================================
+   Horizontal Gallery Strip
+   Infinite, system-controlled, smooth continuous movement
+   ========================================================== */
+
+.showcase__gallery-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.showcase__track {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  /* Smooth, slow, consistent continuous movement */
+  animation: editorialContinuousScroll 50s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation smoothly on hover */
+.showcase__gallery-wrapper:hover .showcase__track {
+  animation-play-state: paused;
+}
+
+.showcase__set {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding-right: 24px;
+  /* Matches gap between primary and duplicate sets */
+}
+
+@keyframes editorialContinuousScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================
+   Editorial Image Cards
+   Purely visual, consistent card heights, refined crops
+   ========================================================== */
+
+.showcase__card {
+  flex: 0 0 280px;
+  width: 280px;
+  height: 420px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid rgba(19, 68, 90, 0.1);
+  box-shadow: 0 12px 30px rgba(19, 68, 90, 0.08);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.4s ease;
+  user-select: none;
+}
+
+.showcase__card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(151, 7, 71, 0.3);
+  box-shadow: 0 22px 45px rgba(19, 68, 90, 0.15);
+}
+
+.showcase__card-img-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #EBE3D3;
+}
+
+.showcase__card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.showcase__card:hover .showcase__card-img {
+  transform: scale(1.05);
+}
+
+/* ==========================================================
+   Vignette Edge Fades
+   ========================================================== */
+
+.showcase__fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 90px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.showcase__fade--left {
+  left: 0;
+  background: linear-gradient(to right, #FEF4E8 0%, rgba(254, 244, 232, 0) 100%);
+}
+
+.showcase__fade--right {
+  right: 0;
+  background: linear-gradient(to left, #FEF4E8 0%, rgba(254, 244, 232, 0) 100%);
+}
+
+/* ==========================================================
+   Responsive Breakpoints
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .showcase--editorial {
+    padding: 70px 0 50px 0;
+    min-height: auto;
+  }
+
+  .showcase__header {
+    margin-bottom: 26px;
+  }
+
+  .showcase__card {
+    flex: 0 0 240px;
+    width: 240px;
+    height: 360px;
+    border-radius: 20px;
+  }
+
+  .showcase__set {
+    gap: 18px;
+    padding-right: 18px;
+  }
+
+  .showcase__fade {
+    width: 50px;
+  }
+}
+
+@media (max-width: 560px) {
+  .showcase__card {
+    flex: 0 0 210px;
+    width: 210px;
+    height: 320px;
+    border-radius: 18px;
+  }
+
+  .showcase__set {
+    gap: 14px;
+    padding-right: 14px;
+  }
+
+  .showcase__fade {
+    width: 30px;
+  }
+}
+
+/* ==========================================================
+   Prefers Reduced Motion
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__track {
+    animation: none !important;
+  }
+
+  .showcase__card,
+  .showcase__card-img {
+    transition: none !important;
+  }
+}
